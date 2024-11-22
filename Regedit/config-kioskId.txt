@@ -1,0 +1,14 @@
+$registryPath = "HKLM:\SOFTWARE\MediPay"
+if (-not (Test-Path $registryPath)) {
+    New-Item -Path $registryPath -Force
+}
+$kioskIdValue = Read-Host -Prompt "Input KioskId"
+Set-ItemProperty -Path $registryPath -Name "KioskId" -Value $kioskIdValue -Type String
+$secretKeyValue = Read-Host -Prompt "Input SecretKey"
+Set-ItemProperty -Path $registryPath -Name "SecretKey" -Value $secretKeyValue -Type String
+if (Test-Path $registryPath) {
+    Write-Host "Create config success!"
+} else {
+	Write-Host "Create config ERROR!"
+}
+Read-Host -Prompt "Enter to exit PowerShell"
