@@ -11,4 +11,4 @@ if (Test-Path $registryPath) {
 } else {
 	Write-Host "Create config ERROR!"
 }
-Read-Host -Prompt "Enter to exit PowerShell"
+
